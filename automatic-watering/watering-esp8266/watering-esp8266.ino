@@ -3,19 +3,30 @@
 #include <WiFiManager.h>
 
 WiFiManager wifiManager;
-StaticJsonDocument<64> doc;
+StaticJsonDocument<64> input;
+StaticJsonDocument<64> output;
 ESP8266WebServer server(80);
 
 void handleGet()
 {
   String jsonStr;
-  serializeJson(doc, jsonStr);
+  serializeJson(input, jsonStr);
   server.send(200, "text/json", jsonStr);
 }
 
 void handlePost()
 {
   String body = server.arg("plain");
+  DeserializationError error = deserializeJson(output, body);
+  if (error)
+  {
+    server.send(400, "text/plain", "Can't deserialize body");
+    return;
+  }
+  if (!output["duration"]) {
+    server.send(400, "text/plain", "Missing duration");
+    return;
+  }
   Serial.println(body);
   server.send(200, "text/plain", body);
 }
@@ -36,7 +47,7 @@ void loop()
   if (Serial.available() > 0)
   {
     String json = Serial.readString();
-    deserializeJson(doc, json);
+    deserializeJson(input, json);
   }
   server.handleClient();
 }

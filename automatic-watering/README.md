@@ -14,14 +14,14 @@ Board: Arduino UNO
 
 ## ESP8266
 
-To upload the sketch to the board switches 5,6 and 7 must be on, the others to off. You must press the button "ESP Reboot" during programming.
+To upload the sketch to the board switches 5,6 and 7 must be on, the others to off.
 To test it, you must only have switches 5 and 6 to on.
 
 ### Arduino IDE config
 
 Board: Generic ESP8266 Module
 Upload Speed: 115200
-Flash Size: 512KB (FS:64KB)
+Flash Size: 4MB (FS:2MB)
 Flash Mode: DIO
 Reset Method: no dtr (aka ck)
 

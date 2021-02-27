@@ -11,6 +11,8 @@ bool isWatering = false;
 
 void setup()
 {
+  Serial.begin(115200);
+
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(WATER_LEVEL_PIN, INPUT_PULLUP);
   pinMode(WATER_PUMP_PIN, OUTPUT);
@@ -48,7 +50,7 @@ void loop()
     if (!error)
     {
       digitalWrite(WATER_VALVE_PIN, HIGH);
-      delay(input["duration"]);
+      delay(input["duration"].as<long>() * 1000);
       digitalWrite(WATER_VALVE_PIN, LOW);
     }
   }
