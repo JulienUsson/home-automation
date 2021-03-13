@@ -27,9 +27,9 @@ Reset Method: no dtr (aka ck)
 
 # Dependencies
 
-[Arduino JSON](https://arduinojson.org/)
+[Arduino JSON v6.17.3](https://arduinojson.org/)
 
-[Wifi manager](https://github.com/tzapu/WiFiManager)
+[Wifi manager v0.16](https://github.com/tzapu/WiFiManager)
 
 [ESP8266WebServer](https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WebServer)
 
