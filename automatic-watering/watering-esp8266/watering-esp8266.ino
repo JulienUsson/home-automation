@@ -51,6 +51,7 @@ void setup()
 {
   Serial.begin(57600);
   wifiManager.setAPStaticIPConfig(IPAddress(192, 168, 1, 1), IPAddress(192, 168, 1, 1), IPAddress(255, 255, 255, 0));
+  wifiManager.setDebugOutput(false);
   wifiManager.autoConnect("Garden", "WATER");
 
   server.on(F("/"), HTTP_GET, handleGet);
