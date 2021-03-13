@@ -57,7 +57,7 @@ void loop()
 
     // Message to send to the ESP8266
     String message = "";
-    message = message + "HW" + (hasWater == LOW ? "1" : "0");
+    message = message + "HW" + (hasWater ? "1" : "0");
     message = message + "IW" + (isWatering ? "1" : "0");
     Serial.println(message);
   }
